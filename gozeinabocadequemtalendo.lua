@@ -4,10 +4,17 @@
 local LibrarySource = game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/ui.luau")
 LibrarySource = LibrarySource
     :gsub("Nousigi Hub", "Mango Cat Hub")
-    :gsub("Nousigi", "Mango")
-    :gsub("Nousigi Hub", "Mango Cat Hub")
+    :gsub("Nousigi", "MangoCat")
+    :gsub("Night Slayer Hub", "Mango Cat Hub")
 
 local Library = loadstring(LibrarySource)()
+
+
+--[[
+  Hub: Mango Cat Hub
+  UI: Banana UI library
+  Game: Meme Sea
+]]
 
 local _wait = task.wait
 repeat _wait() until game:IsLoaded()
@@ -447,7 +454,7 @@ end
 
 local Window = Library:CreateWindow({
     Title = "Mango Cat Hub",
-    Desc = "- Meme Sea",
+    Desc = "Meme Sea | Mango Cat Hub",
 })
 
 local Tabs = {
@@ -802,6 +809,11 @@ do
             Player.PlayerGui.AnnounceGui.Enabled = not value
         end,
     })
+end
+
+ -- A biblioteca inicia com a janela oculta; mostrar a UI após criar todos os controles.
+if Library.ToggleUI then
+    Library.ToggleUI()
 end
 
 Library:Notify({
